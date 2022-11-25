@@ -2,21 +2,15 @@
 (a) Sorting algorithms are used to organise numerical data in increasing order. 
 Implement a Bubble Sort in Python and test it out on a few different lists of unsorted numbers.
 
-![BubbleSort](https://miro.medium.com/max/300/1*LllBj5cbV91URiuzAB-xzw.gif)
-
 (b) There are many other sorting algorithms, most of which are designed to be faster than Bubble Sort.
 
 Once such alternative is called Insertion Sort. Here each number is taken out and inserted near the beginning in increasing order. 
 Implement an Insertion Sort in Python and test it out on a few different lists of unsorted numbers.
 
-![InsertionSort](https://miro.medium.com/max/500/1*onU9OmVftR5WeoLWh14iZw.gif)
-
 ## Exercise 2: Searching algorithms
 Searching algorithms are used to locate specific elements of data in large data sets. 
 
 (a) The simplest such algorithm is Linear Search. This simply the data set element by element until the search term is found (or not).
-
-![LinearSearch](https://bournetocode.com/projects/GCSE_Computing_Fundamentals/pages/img/linear_search.gif)
 
 - Write a function which implements Linear Search
 - Test it our using a few different lists of numbers
@@ -24,8 +18,6 @@ Searching algorithms are used to locate specific elements of data in large data 
 (b) For numerical data, a more efficient algorithm is called Binary Search. Here the numerical data is sorted in increasing order before the Binary Search algorithm is used. The algorithm uses a divide and conquer approach. It begins the search in the middle of the data structure. If it is not the middle element, it then infers that the number can only be on one half. If the search term is greater than the middle number, it must be in the second half of the data structure. Otherwise if it is lower than the middle value, then it can only be in the lower half. So one half can be ignored from the subsequent search. 
 
 The algorithm simply repeats this process of comparing with middle value of the remaining half until the search is complete. 
-
-![BinarySearch](https://d18l82el6cdm1i.cloudfront.net/uploads/bePceUMnSG-binary_search_gif.gif)
 
 - Write a function which implements binary search
 - You may assume that the input list will be already sorted
