@@ -103,13 +103,19 @@ import numpy as np
 
 #Load .txt with arrays for each column
 h, t1, t2, t3, t4, t5 = np.loadtxt('Basics/Exercise-files/FreefallData.txt', unpack='True')
-time = np.zeros(len(h))
-err = np.zeros(len(h))
+tmean = np.zeros(len(h))
+tstd = np.zeros(len(h))
 
 #Mean and Standard Deviations for Repeat Time Measurements:
 for i in range(len(h)):
     temp = [t1[i], t2[i], t3[i], t4[i], t5[i]]
-    time[i] = np.mean(temp)
-    err[i] = np.std(temp)
+    tmean[i] = np.mean(temp)
+    tstd[i] = np.std(temp)
 
-np.savetxt('Basics/Created-files/Freefall_V2.txt', np.c_[h, t1, t2, t3, t4, t5, time, err], delimiter = ',', header = 'h, t1, t2, t3, t4, t5, mean time, std err')
+#Part a
+#Saving all data using np.savetxt() with 3dp precision and headers for columns
+np.savetxt('Basics/Created-files/Freefall_V2.txt', np.c_[h, t1, t2, t3, t4, t5, tmean, tstd], fmt='%.3f', delimiter = ', ', header = 'h, t1, t2, t3, t4, t5, mean time, std dev on fall time')
+
+#Part b
+#Saving subset of data [h, tmean, tstd] with 3dp precision and headers for columns
+np.savetxt('Basics/Created-files/Freefall_V3.txt', np.c_[h, tmean, tstd], fmt='%.3f', delimiter=', ', header='h, mean fall time, std dev on fall time')
