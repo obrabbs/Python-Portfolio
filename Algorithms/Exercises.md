@@ -4,7 +4,7 @@ Implement a Bubble Sort in Python and test it out on a few different lists of un
 
 (b) There are many other sorting algorithms, most of which are designed to be faster than Bubble Sort.
 
-Once such alternative is called Insertion Sort. Here each number is taken out and inserted near the beginning in increasing order. 
+One such alternative is called Insertion Sort. Here each number is taken out and inserted near the beginning in increasing order. 
 Implement an Insertion Sort in Python and test it out on a few different lists of unsorted numbers.
 
 ## Exercise 2: Searching algorithms
