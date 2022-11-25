@@ -69,23 +69,120 @@ Create a python script (.py file) and therein create at least 2 functions.
 
 Next create a simple Python programme which imports this new module and calls the functions in some way. 
 
-## Exercise 7: Formatting and Writing Data
+## Exercise 7: Experiment with these data types
+
+Lists and arrays are the typical data types we use in physics, here are some warm up exercises:
+
+(a) Make a list of integers from 0-10 
+
+- consider using *range* and *list* functions
+
+- print the list to screen
+
+(b) Make an 1D array of floats from 0 to 10
+
+- consider using numpy's linspace or arange functions here
+
+- print the array to screen
+
+(c) Add an extra entry (=11) to your integer list using the *.append* method
+
+- can you add an extra entry to the array? Why?
+
+(d) Change the final value of both the list and array to = 12
+
+(e) Perform some operation on your array such as *b2 = b**2*
+
+- Print the result to screen
+
+- Can you perform operations on lists?
+
+(f) Convert your list to an array, and your array into a list
+
+(g)  Make a 2D array of floats called $A1$ comprised of 2 rows x 3 columns
+
+- 2.1 3.6 7.4
+
+- 11.5 10.2 18.6
+
+(h) Slice the centre column to a new variable $c$.
+
+(i) Test mutable and immutable objects
+
+As we discussed in lecture 3 this week, tuples create immutable objects in memory, whereas lists and arrays create mutable objects.
+
+Carry out a test of mutable and immutable data types using the id( ) function:
+
+- Make an initial variable
+
+    - foo = [some list]
+    
+- Now equate a new variable
+
+    - bar = foo
+    
+- Now change the new variable data
+
+- Check the original variable data
+
+- has it too changed?
+
+- check which objects in memory these variables are associated with
+
+    - print the result of id(variable name) 
+    
+    - this tells you the location in memory of the object the variable is pointing to
+
+Repeat for the case of a tuple data type.
+
+Compare and discuss.
+
+
+## Exercise 8: Using arrays for physics
+
+The vertical position $y(t)$ of a ball thrown upward is given by
+$y(t) = v_0t - 0.5gt^2$, where $g$ is the acceleration of gravity and $v_0$ is the velocity at $t = 0$. 
+
+Two important physical quantities in this context are the potential energy, obtained by doing work against gravity,
+and the kinetic energy, arising from motion. 
+
+The potential energy is defined as $P = mgy$, where $m$ is the mass of the ball. 
+The kinetic energy is defined as $K = \frac{1}{2} mv^2$, where $v$ is the velocity of the ball, related to $y$ by $v(t) = y′(t)$. 
+
+- Create an array for time defined using numpy's linspace function from $t = 0$ to $t = 2v_0/g$
+
+- Calculate $P(t)$ and $K(t)$ and their sum $P+K$. 
+
+- Prompt the user for values of $m$ and $v0$
+
+- Run the program with various choices of $m$ and $v_0$ and determine the behaviour of $P + K$ 
+
+- See if you can combine $t$, $y$, $v$, $P$, $K$ as columns in a single array called $data$
+
+- Practice printing different rows from this data array such as the initial row, data[:,0], and the final row, data[:,-1]. Practice with columns too.
+
+Initially you may find array manipulation confusing, try to clarify your understanding via experimenting with simple examples and discussion in class or via independent study 
+
+## Exercise 9: Formatting and Writing Data
 
 (a) Calculate and print to screen a table of data
 
-Calculate data for time, $t$, and acceleration, $a$, for the sky diver in Exercise 14 using $dt=0.01$s.
+Calculate data for time, $t$, and acceleration, $a$, for the sky diver in Exercise 6 in Data-Analysis using $dt=0.01$s.
 
 - Print $t$ and $a$ at 1 second intervals starting at $t=0$ until $t=10$s
 
 - Format the values as floats: 
 
-    - $t$: 1 decimal places of precision and 5 characters in length
+    - $t$: 1 decimal places of precision in length
     
-    - $a$: 2 decimal places of precision and 5 characters in length
+    - $a$: 2 decimal places of precision in length
     
-- Also display a header of t[s] and a[m/s$^2$] above the data, where each is a separate string having 6 and 8 characters of length respectively
+- Also display a header of t[s] and a[m/s$^2$] above the data
 
-## Exercise 8: Reading Data from Files
+(b) Modify your code so that data for $t$, $y$, $v$, $a$ is written to a file at each time step $dt$. 
+- Use 2 decimal places of precision here
+
+## Exercise 10: Reading Data from Files
 
 Load the data from the file: 'Mixed.txt'
 
@@ -95,7 +192,7 @@ Load the data from the file: 'Mixed.txt'
 
 - Save the sorted integer data to a text file. Ensure the individual numbes are saved with the same length e.g. 5 characters long.
 
-## Exercise 9: Saving Data with Numpy
+## Exercise 11: Saving Data with Numpy
 
 Use the free fall data to test out numpy's *loadtxt* and *savetxt* functions:
 
