@@ -17,7 +17,7 @@ print("(c)")
 IntList.append(11)
 print(IntList)
 
-#can't use the append function for an array, since arrays are immutable (ish)
+#can't use the append function for a numpy array, since arrays are immutable
 
 #d (final value of list and array to 12)
 print("(d)")
@@ -64,7 +64,7 @@ bar += [6, 7]
 print(f"foo = {foo} with id {id(foo)}")
 print(f"bar = {bar} with id {id(bar)}")
 
-print("The ID hasn't changed for foo but changes for bar, when we change the variable data for bar")
+print("Both foo and bar add 6 and 7 to the end. The ID is the same for both foo and bar")
 
 #immutable tuple
 print("(i): tuple")
@@ -76,11 +76,13 @@ bar += (6, 7)
 print(f"foo = {foo} with id {id(foo)}")
 print(f"bar = {bar} with id {id(bar)}")
 
-print("The ID for bar is changed and appends 6 and 7 to the list, and foo remains unchanged with the same ID")
+print("The ID for bar is changed and appends 6 and 7 to the list. Elements in foo remain unchanged with the same ID")
 
 #Exercise 8
+#Libraries
 import numpy as np
-import energy_functions as ef #Pre-made module with GPE and KE functions
+#energy_functions is a local library
+import energy_functions as ef
 
 #Constants:
 g = 9.81
@@ -91,24 +93,51 @@ m = float(input("Mass: "))
 
 #Functions:
 def Time(g, v0):
+    '''
+    Function to return an array of time values in the range 0<t<(2*v0)/g
+
+    Parameters:
+    g = acceleration due to gravity
+    v0 = initial velocity
+    '''
     tMax = (2 * v0)/g
     t = np.linspace(0, tMax, num = 50, dtype = float) #returns an array of time values: 0<t<(2*v0)/g
     return t
 def yFunction(v0, g, t):
+    '''
+    Function to return an array of values for the altitude y
+
+    Parameters:
+    v0 = initial velocity
+    g = acceleartion due to gravity
+    t = array of time values
+    '''
     y = v0*t + 0.5*g*t**2
     return y
 def vFunction(v0, g, t):
+    '''
+    Function to return an array of values for the velocity v
+        
+    Parameters:
+    v0 = initial velocity
+    g = acceleartion due to gravity
+    t = array of time values
+
+    '''
     v= v0 + g*t
     return v
 
-#Main Code
+#Data
 t = Time(g, v0)
 y = yFunction(v0, g, t)
+
+#Calculating required energies
 P = ef.GPE(m, y)
 v = vFunction(v0, g, t)
 K = ef.KE(m, v)
 Total = P + K
 
+#Array manipulation to output the first row and second column
 data = np.array([t, y, v, P, K])
-print(f"First row: {[x[0] for  x in data]}")
-print(f"Second column: {data[1][:]}")
+print(f"First row: {data[:,0]}")
+print(f"Second column: {data[1,:]}")

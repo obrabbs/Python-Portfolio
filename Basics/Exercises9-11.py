@@ -43,12 +43,14 @@ for i in range(0,10):
 t1 = ['%.1f' % elem for elem in t]
 a = ['%.2f' % elem for elem in a]
 
+#Create and print panda dataframe
 dict = {'t [s]' : t1,
         '  a [m/s^2]' : a}
 df = pd.DataFrame(dict)
 print(df)
 
 #Part b:
+#Create second time list
 t2 = ['%.2f' % elem for elem in t]
 
 dict = {'t [s]' : t2,
@@ -58,12 +60,15 @@ df.to_csv('Basics/Created-files/Freefall-with-drag.csv', index = False)
 
 #Exercise 10
 
-def Convert_list_to_string(s):
+def Convert_list_to_string(charList):
     '''
-    Function to convert a list 's' of characters to a string
+    Function to convert a list of characters to a string
+
+    Parameters:
+    charList = 1D list with character elements
     '''
     new = ""
-    for i in s:
+    for i in charList:
         new += i
     return new
 
@@ -83,14 +88,13 @@ for item in rows:
         if(j.isnumeric() == True):
             nums.append(int(j))
 
-#Unsorted and Sorted Lists:
+#Unsorted and Sorted Lists of numbers
 print(f"Unsorted list: \n{nums}")
 sortedNums = sorted(nums)
 print(f"Sorted List: \n{sortedNums}")
 
-sortedList = []
 
-#Save to .txt file with 5 characters:
+#Save to txt file with 5 characters
 file = open('Basics/Created-files/Sorted-numbers.txt', 'w')
 for i in sortedNums:
     i = str(i)
@@ -98,15 +102,17 @@ for i in sortedNums:
 file.close()
 
 #Exercise 11
-#Libraries and Files:
+#Libraries
 import numpy as np
 
-#Load .txt with arrays for each column
+#Load txt and assign an array for each column
 h, t1, t2, t3, t4, t5 = np.loadtxt('Basics/Exercise-files/FreefallData.txt', unpack='True')
+
+#Arrays for mean and std. deviation with all elements assigned to be 0
 tmean = np.zeros(len(h))
 tstd = np.zeros(len(h))
 
-#Mean and Standard Deviations for Repeat Time Measurements:
+#Mean and std. deviations for repeat time measurements
 for i in range(len(h)):
     temp = [t1[i], t2[i], t3[i], t4[i], t5[i]]
     tmean[i] = np.mean(temp)

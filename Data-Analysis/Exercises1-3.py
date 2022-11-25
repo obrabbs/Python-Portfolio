@@ -1,8 +1,8 @@
 #Exercise 1 (2D plots)
-
+#Libraries
 import numpy as np
-import energy_functions as ef #Pre-made module with GPE and KE functions
 import matplotlib.pyplot as plt
+import energy_functions as ef
 
 #Constants
 g = 9.81 #acceleration due to gravity+

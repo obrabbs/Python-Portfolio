@@ -155,8 +155,6 @@ The kinetic energy is defined as $K = \frac{1}{2} mv^2$, where $v$ is the veloci
 
 - Prompt the user for values of $m$ and $v0$
 
-- Run the program with various choices of $m$ and $v_0$ and determine the behaviour of $P + K$ 
-
 - See if you can combine $t$, $y$, $v$, $P$, $K$ as columns in a single array called $data$
 
 - Practice printing different rows from this data array such as the initial row, data[:,0], and the final row, data[:,-1]. Practice with columns too.
