@@ -20,7 +20,6 @@ Searching algorithms are used to locate specific elements of data in large data 
 The algorithm simply repeats this process of comparing with middle value of the remaining half until the search is complete. 
 
 - Write a function which implements binary search
-- You may assume that the input list will be already sorted
 - Hint: this function is often written recursively where the function calls itself!
 - Test out a few different lists of numbers which are sorted by your earlier algorithm in Ex. 1
 
