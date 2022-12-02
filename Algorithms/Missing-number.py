@@ -42,7 +42,6 @@ def Check_2D(N):
     Output:
     numsMissing = missing numbers in N
     '''
-    rows = len(N)
     numMax = Num_elements(N) + 1
     numsMissing = []
     for row in N:
